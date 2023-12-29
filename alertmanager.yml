@@ -1,0 +1,21 @@
+global:
+  # Resolve alerts after 1 minute of inactivity
+  resolve_timeout: 1m
+  # Route alerts to the "lab-alert-manager" receiver
+route:
+  receiver: lab-alert-manager
+  # Repeat sending resolved alerts every 1 minute
+  repeat_interval: 1m
+
+receivers:
+  # Define the "lab-alert-manager" receiver
+  - name: lab-alert-manager
+    # Email notification configuration (using Gmail SMTP server)
+    email_configs:
+      - to: 'lab@gmail.com'
+        from: 'lab@gmail.com'
+        # Replace the following with your actual values
+        smarthost: 'smtp.gmail.com:587'
+        auth_username: 'lab@gmail.com'
+        auth_password: 'App password'
+        send_resolved: true
