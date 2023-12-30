@@ -1,0 +1,25 @@
+global:
+  # Resolve alerts after 1 minute of inactivity
+  resolve_timeout: 1m
+  slack_api_url: 'https://hooks.slack.com/services/PUT YOURS'
+  # Route alerts to the "lab-alert-manager" receiver
+route:
+  receiver: lab-alert-manager
+  # Repeat sending resolved alerts every 1 minute
+  repeat_interval: 1m
+
+receivers:
+  # Define the "lab-alert-manager" receiver
+  - name: lab-alert-manager
+    # Email notification configuration (using Gmail SMTP server)
+    email_configs:
+      - to: 'aouididi91@gmail.com'
+        from: 'aouididi91@gmail.com'
+        # Replace the following with your actual values
+        smarthost: 'smtp.gmail.com:587'
+        auth_username: 'aouididi91@gmail.com'
+        auth_password: 'tcre pjcy ntxm owtw'
+        send_resolved: true
+    slack_configs:
+       - channel: '#name of your Slack Canal'
+         send_resolved: true
